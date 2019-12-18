@@ -1,0 +1,3 @@
+set the variables at the beginning of the script
+edit the label expression you want to see on your links
+label = "{" + hostname + ":icmppingsec.avg(5m)}\r\n{" + hostname + ":icmppingloss.avg(5m)}"
