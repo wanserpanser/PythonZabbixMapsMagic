@@ -1,3 +1,25 @@
+This script is still a work in progress, I use it to automatically make maps for all hosts in a host group.
+It links all hosts to a dummy image element so that the links, linktriggers and labels are already added, you only have to rearrange them manually.
+I have labels on all links with 5 minute avg latency and 5 min avg packetloss
+
+
+Getting started:
 set the variables at the beginning of the script
-edit the label expression you want to see on your links
+customize the label expression you want to see on your links
 label = "{" + hostname + ":icmppingsec.avg(5m)}\r\n{" + hostname + ":icmppingloss.avg(5m)}"
+change the dummyelement to your liking:
+dummy_element = {"selementid": "1",
+                                      "elements": [],
+                                      "elementtype": "4",
+                                      "iconid_off": "2",
+                                      "x": 500,
+                                      "y": 500,
+                                      'label': 'Remove this after all links are corrected',
+                                      'label_location': '-1'
+                                     }
+
+TODO:
+Set images automatically if host is member of some other hostgroup
+Ask user to input which node is the central node and link everything to that one
+Rewrite the script so all the data is gathered at the beginning of the script and then reused locally, instead of doing a shitton of api calls :D
+Feel free to help me make this list grow, I think the community could use more of this :)
